@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Datos personales</title>
+  <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+
+</head>
+<body>
+  <div class="ancho centrar margen fondoAmarillo"></div>
+
+  <div class="ancho centrar margen fondoAzul">
+    <img src="imagenes/logo_cabecera.png" alt="">
+  </div>
+
+  <div class="contenedor-titulo ancho centrar margen">
+    <h1 class="negritas Azul">DÉJANOS CONOCERTE</h1>
+    <div class="linea"></div>
+  </div>
+
+    <br>
+
+  <div class="ancho centrar margen borde">
+    <h2 class="Amarillo">¡ Compártenos tu información !</h2>
+    <br>
+    <p class="negritas">
+      Déjanos tus datos personales y nosotros nos
+      comunicaremos contigo lo más pronto posible.
+    </p>
+    <br><br>
+
+    <form action="#" method="get" id="formulariovalidado" novalidate>
+
+      <div class="cont_columnas">
+
+
+
+          <div class="cont_uno">
+            <input class="form" type="text" id="nombre" name="nombre" aria-label="Nombre completo" placeholder="Nombre Completo *">
+            <br>
+            <input class="form" type="email" id="email" name="email" aria-label="Correo electrónico" placeholder="Correo Electrónico *">
+            <br>
+            <input class="form" type="tel" id="celular" name="celular" aria-label="Celular" placeholder="Celular *">
+            <br>
+            <input class="form" type="text" id="Ciudad" name="ciudad" aria-label="Ciudad" placeholder="Ciudad">
+            <br>
+            <input class="form" type="text" id="Localidad" name="localidad" aria-label="Localidad" placeholder="Localidad">
+            <br><br>
+            <button type="submit" id="btn_validar" class="btn_rojo">Enviar</button>
+          </div>
+
+          <div class="cont_dos">
+            <input class="form" type="text" id="Estado" name="estado" aria-label="Estado" placeholder="Estado">
+            <br>
+            <input class="form" type="text" id="Colonia" name="colonia" aria-label="Colonia" placeholder="Colonia">
+            <select class="form" name="Opciones" id="unidades" aria-label="Área de interés">
+              <option value="">Elige tu área de interés *</option>
+              <option value="Cajas">Cajas</option>
+              <option value="Servicios">Servicios</option>
+              <option value="Asesoramiento_Financiero">Asesoramiento Financiero</option>
+              <option value="Gestoría_y_Cobranza">Gestoría y Cobranza</option>
+              <option value="Crédito">Crédito</option>
+              <option value="Jurídico">Jurídico</option>
+              <option value="Archivo">Archivo</option>
+              <option value="Mercadotecnia">Mercadotecnia</option>
+              <option value="Diligencias">Diligencias</option>
+              <option value="Compras">Compras</option>
+              <option value="Intendencia">Intendencia</option>
+              <option value="Auditoría">Auditoría</option>
+              <option value="Capital_Humano">Capital Humano</option>
+              <option value="Mantenimiento">Mantenimiento</option>
+              <option value="Sistemas">Sistemas</option>
+              <option value="Contabilidad">Contabilidad</option>
+              <option value="Administración">Administración</option>
+            </select>
+            <label><input type="radio" name="persona" class="Fisica" value="Persona_Física" checked> Persona Física</label>
+            <label><input type="radio" name="persona" class="Moral" value="Persona_Moral"> Persona Moral</label>
+          </div>
+
+
+
+      </div>
+
+    </form>
+
+  </div>
+
+  <div class="ancho centrar margen fondoAzul blanco">
+    <p>Jhonatan Arcila Choc
+      <br>
+      7sb
+      <br>
+      Programacion Web
+    </p>
+  </div>
+
+
+
+  <script>
+
+    $("#formulariovalidado").on("submit", function (evento) {
+
+
+    if ($("#nombre").val().trim() == ""){
+      alert("No escribiste tu nombre ");
+      $("#nombre").focus();
+      evento.preventDefault(); return false;
+    }
+
+    if ($("#email").val().trim() == ""){
+      alert("No escribiste tu email");
+      $("#email").focus();
+      evento.preventDefault(); return false;
+    }
+
+    let expresionCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+    if (!expresionCorreo.test($("#email").val().trim())){
+      alert("Escribe un email valido");
+      $("#email").focus();
+      evento.preventDefault(); return false;
+    }
+
+    if ($("#celular").val().trim() == ""){
+      alert("No escribiste tu numero de celular ");
+      $("#celular").focus();
+      evento.preventDefault(); return false;
+    }
+
+    let expresionCelular = /^[0-9]{10}$/;
+
+    if (!expresionCelular.test($("#celular").val().trim())) {
+      alert("El celular debe tener 10 numeros");
+      $("#celular").focus();
+      evento.preventDefault(); return false;
+    }
+
+    if ($("#unidades").val() == "") {
+      alert("Debes seleccionar un área de interés");
+      $("#unidades").focus();
+      evento.preventDefault(); return false;
+    }
+
+
+
+    });
+
+
+  </script>
+
+</body>
+</html>
